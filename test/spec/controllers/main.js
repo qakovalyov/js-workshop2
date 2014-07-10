@@ -24,4 +24,6 @@ describe('Controller: MainCtrl', function () {
     expect(scope.list.length).toBe(old_length + 1);
     expect(scope.list[0]).toBe(item);
   });
+
+
 });
