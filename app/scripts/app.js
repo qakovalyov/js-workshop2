@@ -8,7 +8,10 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/main.html'
+      })
+      .when('/todo_list', {
+        templateUrl: 'views/todo_list.html',
         controller: 'MainCtrl'
       })
       .otherwise({

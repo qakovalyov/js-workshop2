@@ -16,7 +16,11 @@ describe('Controller: MainCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+  it('add element', function () {
+    var old_length = scope.list.length;
+    var item = 'New Item';
+    scope.add(item);
+    expect(scope.list.length).toBe(old_length + 1);
+    expect(scope.list.shift()).toBe(item);
   });
 });

@@ -1,19 +1,11 @@
-describe('workshop angular', function() {
+describe('add new item to todo list', function() {
   it('should greet the named user', function() {
-    // Load the AngularJS homepage.
     browser.get('/');
-
-    // Find the element with ng-model matching 'yourName' - this will
-    // find the <input type="text" ng-model="yourName"/> element - and then
-    // type 'Julie' into it.
-    element(by.model('field1')).sendKeys('Julie');
-
-    // Find the element with binding matching 'yourName' - this will
-    // find the <h1>Hello {{yourName}}!</h1> element.
-    var greeting = element(by.binding('field1'));
-
-    // Assert that the text element has the expected value.
-    // Protractor patches 'expect' to understand promises.
-    expect(greeting.getText()).toEqual('Julie');
+    var new_item = 'New Item';
+    element(by.model('new_item')).sendKeys(new_item);
+    element(by.css('.add')).click();
+    element.all(by.repeater('item in items').then(function(items) {
+      expect(items[0].getText()).toEqual(new_item);
+    }));
   });
 });
