@@ -19,8 +19,9 @@ describe('Controller: MainCtrl', function () {
   it('add element', function () {
     var old_length = scope.list.length;
     var item = 'New Item';
-    scope.add(item);
+    scope.new_item = item;
+    scope.add();
     expect(scope.list.length).toBe(old_length + 1);
-    expect(scope.list.shift()).toBe(item);
+    expect(scope.list[0]).toBe(item);
   });
 });
